@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/invu/Movieo/master/Images/movieo-logo.png" height="128" width="128" alt="Logo" />
+  <img src="/Images/movieo-logo.png" height="128" width="128" alt="Logo" />
   <br />
   Movieo
 </h1>
@@ -7,8 +7,6 @@
 <h3 align="center">Discover, organize and watch movies instantly</h3>
 
 <div align="center">
-
-[![Join the chat at https://gitter.im/movieo-app/Lobby](https://badges.gitter.im/movieo-app/Lobby.svg)](https://gitter.im/movieo-app/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 </div>
 
 ## What is Movieo?
@@ -17,7 +15,7 @@ This is a place for browsing and watching movies, made with love by a few develo
 
 Movieo started out as a passion project and continues to improve thanks to wonderful people like yourself who give us invaluable feedback on a daily basis.
 
-[Terms of Service](http://movieo.info/more/tos.html)  |  [Frequently Asked Questions](http://movieo.info/more/faq.html)  |  [Release Notes](http://movieo.info/more/release-notes.html)  |  [Email Us](mailto:hi@movieo.info)
+*This project is no longer in active development. However, it's still maintainable (and works fine) as all resources are included in this repo. The database is still being hosted and may be updated every so often. You're welcome to still send your requests. If you have any questions, drop me an email at bettercodes1@gmail.com - Oh, check out our new project, [WebCrunch](https://github.com/ekkash/WebCrunch). It's a lot better than this IMO*
 
 ## Core Features:
 - Discover hundreds of movies all in one place
@@ -35,32 +33,33 @@ Movieo started out as a passion project and continues to improve thanks to wonde
 - Download movies directly to your computer
 - Can't find the movie you're after? Request it and we'll put it up in no time
 - Movies and sources updated everyday by our amazing team of researchers
-- Automatically check for updates, so you never miss the new features available
+- Automatic updates on the fly, so you never miss the new features available
 
 ## Supported Platforms
 Works with Windows 7 and above (Windows 7, 8, 8.1, 10)
 
 ## Installation
-Download the latest installer [here](https://github.com/invu/movieo/releases/download/0.3.4.0/MovieoInstaller.exe)
+Download and run the latest version of the Windows installer, "MovieoInstaller.exe" from the [releases](https://github.com/ekkash/WebCrunch/releases/latest)
 
 ## Screenshots
-### Movies
-![Movies](https://github.com/invu/movieo/raw/master/Screenshots/Movieo%20-%20All%20Movies.png)
+![Discover - All Movies](https://github.com/ekkash/movieo-beta/blob/master/Screenshots/Movieo%20-%20All%20Movies.png?raw=true)
 
-### Movie Details
-![Movie Details](https://github.com/invu/movieo/raw/master/Screenshots/Movieo%20-%20Movie%20Details.png)
+![Discover - Movie Details](https://github.com/ekkash/movieo-beta/blob/master/Screenshots/Movieo%20-%20Movie%20Details.png?raw=true)
 
-### Organized Library
-![Organized Library](https://github.com/invu/movieo/raw/master/Screenshots/Movieo%20-%20Library.png)
+![Collections Made by Others](https://github.com/ekkash/movieo-beta/blob/master/Screenshots/Movieo%20-%20Collections.png?raw=true)
 
-### Collections
-![Collections](https://github.com/invu/movieo/raw/master/Screenshots/Movieo%20-%20Collections.png)
+![Track Movies](https://github.com/ekkash/movieo-beta/blob/master/Screenshots/Movieo%20-%20Library.png?raw=true)
 
-### Download Movies
-![Download Movies](https://github.com/invu/movieo/raw/master/Screenshots/Movieo%20-%20Download%20Movies.png)
-
-## Get In Touch
-[Facebook](https://facebook.com/itsmovieo) | [Twitter](https://twitter.com/itsmovieo) | [YouTube](https://www.youtube.com/bettercodes)
+![Download Movies](https://github.com/ekkash/movieo-beta/blob/master/Screenshots/Movieo%20-%20Download%20Movies.png?raw=true)
 
 ## Legal Side of Things...
 All of the free movies found on this app are hosted on third-party servers that are freely available to watch online for all internet users. Any legal issues regarding the free online movies on this website should be taken up with the actual file hosts themselves, as we're not affiliated with them.
+
+## License
+If you distribute a copy or make a fork of the project, you have to credit this project as source.
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+**This project and the distribution of this project is not illegal, nor does it violate any DMCA laws. The use of this project, however, may be illegal in your area. Check your local laws and regulations regarding the use of torrents to watch potentially copyrighted content. The maintainers of this project do not condone the use of this project for anything illegal, in any state, region, country, or planet. Please use at your own risk.**
