@@ -1,5 +1,5 @@
 {
-  "movies": [
+  "Movies": [
     "Rings (2017)",
     "The Fight of the Furious (2017)",
     "Sleepless (2017)",
