@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://dl.dropbox.com/s/54avkywzmv91elc/movieo-logo.png?dl=0" height="128" width="128" alt="Logo" />
+  <img src="/Movieo/Resources/logo.png" height="128" width="128" alt="Logo" />
   <br />
   Movieo
 </h1>
@@ -7,8 +7,6 @@
 <h3 align="center">Discover, organize and watch movies instantly</h3>
 
 <div align="center">
-
-[![Join the chat at https://gitter.im/movieo-app/Lobby](https://badges.gitter.im/movieo-app/Lobby.svg)](https://gitter.im/movieo-app/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 </div>
 
 ## What is Movieo?
@@ -17,7 +15,7 @@ This is a place for browsing and watching movies, made with love by a few develo
 
 Movieo started out as a passion project and continues to improve thanks to wonderful people like yourself who give us invaluable feedback on a daily basis.
 
-[Terms of Service](http://movieo.info/more/tos.html)  |  [Frequently Asked Questions](http://movieo.info/more/faq.html)  |  [Release Notes](http://movieo.info/more/release-notes.html)  |  [Email Us](mailto:hi@movieo.info)
+*This project is no longer in active development. However, it's still maintainable (and works fine) as all resources are included in this repo. The database is still being hosted and may be updated every so often. You're welcome to still send your requests. If you have any questions, drop me an email at bettercodes1@gmail.com - Oh, check out our new project, [WebCrunch](https://github.com/ekkash/WebCrunch). It's a lot better than this IMO*
 
 ## Core Features:
 - Discover hundreds of movies all in one place
@@ -35,35 +33,24 @@ Movieo started out as a passion project and continues to improve thanks to wonde
 - Download movies directly to your computer
 - Can't find the movie you're after? Request it and we'll put it up in no time
 - Movies and sources updated everyday by our amazing team of researchers
-- Automatically check for updates, so you never miss the new features available
+- Automatic updates on the fly, so you never miss the new features available
 
 ## Supported Platforms
 Works with Windows 7 and above (Windows 7, 8, 8.1, 10)
 
 ## Installation
-Download installer [here](http://movieo.info/movieo-setup.zip)
+Download and run the latest version of the Windows installer, "MovieoInstaller.exe" from the [releases](https://github.com/ekkash/WebCrunch/releases/latest)
 
 ## Screenshots
-![Discover - Trending Movies](https://dl.dropbox.com/s/qlh8dxtsxfqqsnx/Movieo%20-%20Trending.png?dl=0)
+![Discover - All Movies](https://github.com/ekkash/movieo-beta/blob/master/Screenshots/Movieo%20-%20All%20Movies.png?raw=true)
 
-![Discover - All Movies](https://dl.dropbox.com/s/apdtl7wjosp4rs5/Movieo%20-%20All%20Movies.png?dl=0)
+![Discover - Movie Details](https://github.com/ekkash/movieo-beta/blob/master/Screenshots/Movieo%20-%20Movie%20Details.png?raw=true)
 
-![Discover - Movie Details](https://dl.dropbox.com/s/xc2ypskjvdhi1ss/Movieo%20-%20Movie%20Details.png?dl=0)
+![Collections Made by Others](https://github.com/ekkash/movieo-beta/blob/master/Screenshots/Movieo%20-%20Collections.png?raw=true)
 
-![Collections Made by Others](https://dl.dropbox.com/s/fds9bdolw07pgxd/Movieo%20-%20Collections.png?dl=0)
+![Track Movies](https://github.com/ekkash/movieo-beta/blob/master/Screenshots/Movieo%20-%20Library.png?raw=true)
 
-![Supports Multiple Sources](https://dl.dropbox.com/s/cn55x5ye8yosgdl/Movieo%20-%20Available%20Streams.png?dl=0)
-
-![Track Movies](https://dl.dropbox.com/s/bh938xhudvrls5w/Movieo%20-%20Library.png?dl=0)
-
-![Create Lists](https://dl.dropbox.com/s/k25xeu27nhndmmn/Movieo%20-%20Create%20List.png?dl=0)
-
-![Download Movies](https://dl.dropbox.com/s/quxf5phgjoko4b1/Movieo%20-%20Download%20Movies.png?dl=0)
-
-![Request Movies](https://dl.dropbox.com/s/v4fcg12fiil0dah/Movieo%20-%20Request%20Movie.png?dl=0)
-
-## Get Social
-[Facebook](https://facebook.com/itsmovieo) | [Twitter](https://twitter.com/itsmovieo) | [YouTube](https://www.youtube.com/bettercodes)
+![Download Movies](https://github.com/ekkash/movieo-beta/blob/master/Screenshots/Movieo%20-%20Download%20Movies.png?raw=true)
 
 ## Legal Side of Things...
 All of the free movies found on this app are hosted on third-party servers that are freely available to watch online for all internet users. Any legal issues regarding the free online movies on this website should be taken up with the actual file hosts themselves, as we're not affiliated with them.
