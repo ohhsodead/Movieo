@@ -31,7 +31,7 @@ Public Class ctrlPosterTitle
     Public infoMetascore As String
     Public infoPosterUrl As String
 
-    Public infoSources As String()
+    Public infoStreams As New List(Of Stream)
 
     Public infoFanartUrl As String
     Public infoTrailerUrl As String
@@ -47,7 +47,7 @@ Public Class ctrlPosterTitle
             frmMovieDetails.infoLanguage.Text = infoLanguage
             frmMovieDetails.infoImdbId = infoImdbId
             frmMovieDetails.infoRatingIMDb.Text = infoImdbRating
-            frmMovieDetails.infoQuality.Text = ReturnHighestQuality(infoSources)
+            frmMovieDetails.infoQuality.Text = ReturnHighestQuality(infoStreams)
             frmMovieDetails.infoPosterUrl = infoPosterUrl
             frmMovieDetails.infoFanartUrl = infoFanartUrl
 
@@ -64,7 +64,7 @@ Public Class ctrlPosterTitle
             frmMovieDetails.infoImdbId = infoImdbId
             frmMovieDetails.infoRatingIMDb.Text = infoImdbRating
             frmMovieDetails.infoRatingMetaScore.Text = infoMetascore
-            frmMovieDetails.infoSources = infoSources
+            frmMovieDetails.infoStreams = infoStreams
 
             Try
                 'Split Director/Cast/Genres into clickable Labels to search
@@ -228,35 +228,35 @@ Public Class ctrlPosterTitle
 
 #Region "Get Quality from URL File Name"
 
-    Public Function ReturnHighestQuality(Urls As String()) As String
-        For Each Url As String In Urls
-            If Url.ToLower.Contains("1080") Then
+    Public Function ReturnHighestQuality(URLs As List(Of Stream)) As String
+        For Each Url In URLs
+            If Url.URL.ToLower.Contains("1080") Then
                 Return "1080p"
-            ElseIf Url.ToLower.Contains("hdts") Then
+            ElseIf Url.URL.ToLower.Contains("hdts") Then
                 Return "1080p"
-            ElseIf Url.ToLower.Contains("bdrip") Then
+            ElseIf Url.URL.ToLower.Contains("bdrip") Then
                 Return "1080p"
-            ElseIf Url.ToLower.Contains("bd-rip") Then
+            ElseIf Url.URL.ToLower.Contains("bd-rip") Then
                 Return "1080p"
-            ElseIf Url.ToLower.Contains("720") Then
+            ElseIf Url.URL.ToLower.Contains("720") Then
                 Return "720p"
-            ElseIf Url.ToLower.Contains("webdl") Then
+            ElseIf Url.URL.ToLower.Contains("webdl") Then
                 Return "720p"
-            ElseIf Url.ToLower.Contains("web-dl") Then
+            ElseIf Url.URL.ToLower.Contains("web-dl") Then
                 Return "720p"
-            ElseIf Url.ToLower.Contains("dvdrip") Then
+            ElseIf Url.URL.ToLower.Contains("dvdrip") Then
                 Return "720p"
-            ElseIf Url.ToLower.Contains("dvd-rip") Then
+            ElseIf Url.URL.ToLower.Contains("dvd-rip") Then
                 Return "720p"
-            ElseIf Url.ToLower.Contains("hdrip") Then
+            ElseIf Url.URL.ToLower.Contains("hdrip") Then
                 Return "720p"
-            ElseIf Url.ToLower.Contains("hd-rip") Then
+            ElseIf Url.URL.ToLower.Contains("hd-rip") Then
                 Return "720p"
-            ElseIf Url.ToLower.Contains("hdtv") Then
+            ElseIf Url.URL.ToLower.Contains("hdtv") Then
                 Return "720p"
-            ElseIf Url.ToLower.Contains("480") Then
+            ElseIf Url.URL.ToLower.Contains("480") Then
                 Return "480p"
-            ElseIf Url.ToLower.Contains("camrip") Then
+            ElseIf Url.URL.ToLower.Contains("camrip") Then
                 Return "CAM"
             Else
                 Return "n/a"

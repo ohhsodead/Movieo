@@ -5,7 +5,7 @@ Imports System.Text.RegularExpressions
 Public Class frmMovieDetails
 
     Public infoPosterUrl As String
-    Public infoSources As String()
+    Public infoStreams As New List(Of Stream)
     Public infoImdbId As String
     Public infoFanartUrl As String
     Public infoTrailerUrl As String
@@ -378,7 +378,7 @@ Public Class frmMovieDetails
                 frmSelectSource.Opacity = 0.85
             End If
 
-            Dim getUrlFromUser As String = Movieo.returnSource(Me, infoTitle.Text + " (" + infoYear.Text + ")", infoSources, "watch")
+            Dim getUrlFromUser As String = Movieo.returnSource(Me, infoTitle.Text + " (" + infoYear.Text + ")", infoStreams, "watch")
 
             If Not getUrlFromUser = Nothing Then
                 frmMediaPlayer.Text = "Watching " + infoTitle.Text + " (" + infoYear.Text + ")"
@@ -425,7 +425,7 @@ Public Class frmMovieDetails
                 frmSelectSource.Opacity = 0.85
             End If
 
-            Dim getUrlFromUser As String = Movieo.returnSource(Me, infoTitle.Text + " (" + infoYear.Text + ")", infoSources, "download")
+            Dim getUrlFromUser As String = Movieo.returnSource(Me, infoTitle.Text + " (" + infoYear.Text + ")", infoStreams, "download")
 
             If Not getUrlFromUser = Nothing Then
                 frmDownloadClient.doDownload(getUrlFromUser, infoTitle.Text, infoYear.Text)

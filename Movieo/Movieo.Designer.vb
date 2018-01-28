@@ -391,7 +391,7 @@ Partial Class Movieo
         Me.btnFilterNewReleases.BorderColor = System.Drawing.Color.Transparent
         Me.btnFilterNewReleases.ColorFillSolid = System.Drawing.Color.Transparent
         Me.btnFilterNewReleases.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnFilterNewReleases.DesignerSelected = False
+        Me.btnFilterNewReleases.DesignerSelected = True
         Me.btnFilterNewReleases.DimFactorClick = 0
         Me.btnFilterNewReleases.DimFactorHover = 0
         Me.btnFilterNewReleases.FillType = CButtonLib.CButton.eFillType.Solid
@@ -631,7 +631,7 @@ Partial Class Movieo
         Me.btnGenreMystery.BorderColor = System.Drawing.Color.Transparent
         Me.btnGenreMystery.ColorFillSolid = System.Drawing.Color.Transparent
         Me.btnGenreMystery.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnGenreMystery.DesignerSelected = True
+        Me.btnGenreMystery.DesignerSelected = False
         Me.btnGenreMystery.DimFactorClick = 0
         Me.btnGenreMystery.DimFactorHover = 0
         Me.btnGenreMystery.FillType = CButtonLib.CButton.eFillType.Solid

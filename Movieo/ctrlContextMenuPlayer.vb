@@ -44,7 +44,7 @@
             frmSelectSource.Opacity = 0.85
         End If
 
-        Dim getUrlFromUser As String = Movieo.returnSource(Me, frmMovieDetails.infoTitle.Text + " (" + frmMovieDetails.infoYear.Text + ")", frmMovieDetails.infoSources, "watch")
+        Dim getUrlFromUser As String = Movieo.returnSource(Me, frmMovieDetails.infoTitle.Text + " (" + frmMovieDetails.infoYear.Text + ")", frmMovieDetails.infoStreams, "watch")
 
         If Not getUrlFromUser = Nothing Then
             frmMediaPlayer.Text = "Watching " + frmMovieDetails.infoTitle.Text + " (" + frmMovieDetails.infoYear.Text + ")"
@@ -60,7 +60,7 @@
             frmSelectSource.Opacity = 0.85
         End If
 
-        Dim getUrlFromUser As String = Movieo.returnSource(frmMovieDetails, frmMovieDetails.infoTitle.Text + " (" + frmMovieDetails.infoYear.Text + ")", frmMovieDetails.infoSources, "watch")
+        Dim getUrlFromUser As String = Movieo.returnSource(frmMovieDetails, frmMovieDetails.infoTitle.Text + " (" + frmMovieDetails.infoYear.Text + ")", frmMovieDetails.infoStreams, "watch")
 
         If Not getUrlFromUser = Nothing Then
             Dim VLC As Process = New Process

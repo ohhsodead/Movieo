@@ -132,48 +132,13 @@ Public Class frmInfo
         Process.Start("")
     End Sub
 
-
-    Public Function IsValidEmail(strIn As String) As Boolean
-        If String.IsNullOrEmpty(strIn) Then Return False
-
-        ' Use IdnMapping class to convert Unicode domain names.
-        Try
-            strIn = Regex.Replace(strIn, "(@)(.+)$", AddressOf Me.DomainMapper,
-                                RegexOptions.None, TimeSpan.FromMilliseconds(200))
-        Catch ex As RegexMatchTimeoutException
-            Return False
-        End Try
-
-        ' Return true if strIn is in valid e-mail format.
-        Try
-            Return Regex.IsMatch(strIn,
-                 "^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                 "(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
-                 RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250))
-        Catch e As RegexMatchTimeoutException
-            Return False
-        End Try
-    End Function
-
-    Private Function DomainMapper(match As Match) As String
-        'IdnMapping class with default property values.
-        Dim idn As New IdnMapping()
-
-        Dim domainName As String = match.Groups(2).Value
-        Try
-            domainName = idn.GetAscii(domainName)
-        Catch ex As ArgumentException
-        End Try
-        Return match.Groups(1).Value + domainName
-    End Function
-
     'Social links 
-    Private Sub ContactSourceForge_Click(sender As Object, e As EventArgs) Handles lblSocialSourceForge.Click
-        Process.Start("https://sourceforge.net/projects/odeum-movies-beta/")
+    Private Sub lblSocialTwitter_Click(sender As Object, e As EventArgs) Handles lblSocialTwitter.Click
+        Process.Start("http://twitter.com/invdevs")
     End Sub
 
-    Private Sub ContactTwitter_Click(sender As Object, e As EventArgs) Handles lblSocialTwitter.Click
-        Process.Start("http://twitter.com/soinfamousdev")
+    Private Sub lblSocialGitHub_Click(sender As Object, e As EventArgs) Handles lblSocialGitHub.Click
+        Process.Start("https://github.com/ekkash/")
     End Sub
 
     Private Sub TabAbout_Scroll(sender As Object, e As ScrollEventArgs) Handles tabAbout.Scroll
@@ -207,7 +172,7 @@ Public Class frmInfo
     End Sub
 
     Private Sub imgProviderPopcornTime_Click(sender As Object, e As EventArgs) Handles imgProviderPopcornTime.Click
-        Process.Start("https://popcorntime.sh/")
+        Process.Start("https://popcorntime.sh")
     End Sub
 
 #End Region

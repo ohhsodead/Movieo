@@ -1,10 +1,4 @@
-﻿Public Class Rating
-    Public Property Source As String
-    Public Property Value As String
-End Class
-
-Public Class OMDbAPI
-    Public Property Sources As String()
+﻿Public Class OMDbAPI
     Public Property Language As String
     Public Property Response As String
     Public Property Country As String
@@ -26,16 +20,23 @@ Public Class OMDbAPI
     Public Property Runtime As String
     Public Property Type As String
     Public Property Year As String
-    Public Property imdbRating As String
+    Public Property ImdbRating As String
     Public Property Writer As String
-    Public Property imdbID As String
-    Public Property imdbVotes As String
+    Public Property ImdbID As String
+    Public Property ImdbVotes As String
     Public Property imageFanart As String
     Public Property trailerUrl As String
-    Public Property YifyTorrent480p As String
-    Public Property YifyTorrent720p As String
-    Public Property YifyTorrent1080p As String
-    Public Property PopcornTorrent720p As String
-    Public Property PopcornTorrent1080p As String
+    Public Property Streams As New List(Of Stream)
 End Class
 
+Public Class Rating
+    Public Property Source As String
+    Public Property Value As String
+End Class
+
+Public Class Stream
+    Public Property Name As String
+    Public Property Size As String
+    Public Property DateAdded As String
+    Public Property URL As String
+End Class

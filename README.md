@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://dl.dropbox.com/s/54avkywzmv91elc/movieo-logo.png?dl=0" height="128" width="128" alt="Logo" />
+  <img src="https://raw.githubusercontent.com/invu/Movieo/master/Images/movieo-logo.png" height="128" width="128" alt="Logo" />
   <br />
   Movieo
 </h1>
@@ -41,38 +41,26 @@ Movieo started out as a passion project and continues to improve thanks to wonde
 Works with Windows 7 and above (Windows 7, 8, 8.1, 10)
 
 ## Installation
-Download installer [here](http://movieo.info/movieo-setup.zip)
+Download the latest installer [here](https://github.com/invu/movieo/releases/download/0.3.4.0/MovieoInstaller.exe)
 
 ## Screenshots
-![Discover - Trending Movies](https://dl.dropbox.com/s/qlh8dxtsxfqqsnx/Movieo%20-%20Trending.png?dl=0)
+### Movies
+![Movies](https://github.com/invu/movieo/raw/master/Screenshots/Movieo%20-%20All%20Movies.png)
 
-![Discover - All Movies](https://dl.dropbox.com/s/apdtl7wjosp4rs5/Movieo%20-%20All%20Movies.png?dl=0)
+### Movie Details
+![Movie Details](https://github.com/invu/movieo/raw/master/Screenshots/Movieo%20-%20Movie%20Details.png)
 
-![Discover - Movie Details](https://dl.dropbox.com/s/xc2ypskjvdhi1ss/Movieo%20-%20Movie%20Details.png?dl=0)
+### Organized Library
+![Organized Library](https://github.com/invu/movieo/raw/master/Screenshots/Movieo%20-%20Library.png)
 
-![Collections Made by Others](https://dl.dropbox.com/s/fds9bdolw07pgxd/Movieo%20-%20Collections.png?dl=0)
+### Collections
+![Collections](https://github.com/invu/movieo/raw/master/Screenshots/Movieo%20-%20Collections.png)
 
-![Supports Multiple Sources](https://dl.dropbox.com/s/cn55x5ye8yosgdl/Movieo%20-%20Available%20Streams.png?dl=0)
+### Download Movies
+![Download Movies](https://github.com/invu/movieo/raw/master/Screenshots/Movieo%20-%20Download%20Movies.png)
 
-![Track Movies](https://dl.dropbox.com/s/bh938xhudvrls5w/Movieo%20-%20Library.png?dl=0)
-
-![Create Lists](https://dl.dropbox.com/s/k25xeu27nhndmmn/Movieo%20-%20Create%20List.png?dl=0)
-
-![Download Movies](https://dl.dropbox.com/s/quxf5phgjoko4b1/Movieo%20-%20Download%20Movies.png?dl=0)
-
-![Request Movies](https://dl.dropbox.com/s/v4fcg12fiil0dah/Movieo%20-%20Request%20Movie.png?dl=0)
-
-## Get Social
+## Get In Touch
 [Facebook](https://facebook.com/itsmovieo) | [Twitter](https://twitter.com/itsmovieo) | [YouTube](https://www.youtube.com/bettercodes)
 
 ## Legal Side of Things...
 All of the free movies found on this app are hosted on third-party servers that are freely available to watch online for all internet users. Any legal issues regarding the free online movies on this website should be taken up with the actual file hosts themselves, as we're not affiliated with them.
-
-## License
-If you distribute a copy or make a fork of the project, you have to credit this project as source.
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-**This project and the distribution of this project is not illegal, nor does it violate any DMCA laws. The use of this project, however, may be illegal in your area. Check your local laws and regulations regarding the use of torrents to watch potentially copyrighted content. The maintainers of this project do not condone the use of this project for anything illegal, in any state, region, country, or planet. Please use at your own risk.**

@@ -7,13 +7,13 @@ Public Class Movieo
 #Region "Preferences (some can be changed for user prefences maybe)"
 
     Public devMode As Boolean = False
-    Public linkMovies As String = "https://dl.dropbox.com/s/qknonvla6qeuiuj/movies-posters.json?dl=0"
-    Public linkReleaseNotes As String = "https://raw.githubusercontent.com/invu/movieo/master/CHANGELOG.md"
+    Public linkMovies As String = "https://dl.dropbox.com/s/6zxx48xy5jido33/movies-posters.json?dl=0"
+    Public linkReleaseNotes As String = "https://raw.githubusercontent.com/ekkash/movieo-beta/master/CHANGELOG.md"
     Public linkNotifications As String = "https://dl.dropbox.com/s/eqxi751t8z031na/movieo-notifications.txt?dl=0"
     Public linkMovieComments As String = "https://dl.dropbox.com/s/swbt9fkbknmoqzz/movieo-comments.txt?dl=0"
-    Public linkNewReleases As String = "https://raw.githubusercontent.com/invu/movieo/master/Data/new-releases.txt"
-    Public linkTrending As String = "https://raw.githubusercontent.com/invu/movieo/master/Data/trending.txt"
-    Public linkTopRated As String = "https://raw.githubusercontent.com/invu/movieo/master/Data/top-rated.txt"
+    Public linkNewReleases As String = "https://raw.githubusercontent.com/ekkash/movieo-beta/master/Data/new-releases.txt"
+    Public linkTrending As String = "https://raw.githubusercontent.com/ekkash/movieo-beta/master/Data/trending.txt"
+    Public linkTopRated As String = "https://raw.githubusercontent.com/ekkash/movieo-beta/master/Data/top-rated.txt"
     Public linkCollections As String = "https://dl.dropbox.com/s/bz42scp93c5we7r/movieo-collections.txt?dl=0"
     Public pathFavouritesList As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments + "\Movieo\Library\Favourites.txt"
     Public pathWatchList As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments + "\Movieo\Library\Watch List.txt"
@@ -22,16 +22,15 @@ Public Class Movieo
     Public pathMyLists As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments + "\Movieo\Library\My Lists\"
     Public pathDownloads As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments + "\Movieo\Downloads\"
     Public pathData As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments + "\Movieo\Data\"
-    Public userDownloadsDirectory As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads")
+    Public userDownloadsDirectory As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads\")
 
     'Updates
     Public linkLatestVersion As String = "https://dl.dropbox.com/s/n0lwh73gh15vpf5/movieo-version.txt?dl=0"
     Public pathInstallerFileName As String = "MovieoInstaller.exe"
-    Public pathDownloadInstaller As String = (userDownloadsDirectory + "\" + pathInstallerFileName)
-
+    Public pathDownloadInstaller As String = userDownloadsDirectory + pathInstallerFileName
 
     Public Function getLatestInstaller(ByVal newVersion As Version) As String
-        Return "https://github.com/invu/movieo/releases/download/" + newVersion.ToString + "/" + pathInstallerFileName
+        Return "https://github.com/ekkash/movieo-beta/releases/download/" + newVersion.ToString + "/" + pathInstallerFileName
     End Function
 
     Public pathUpdater As String = Application.StartupPath + "\Movieo Updater.exe"
@@ -89,9 +88,9 @@ Public Class Movieo
         txtboxSearch.WaterMark = ctrlSearchBoxWatermark  'Set search bar watermark text
         If CheckForInternetConnection() = True Then 'Proceed to internet required functions
             timerCheckForUpdate.Enabled = My.Settings.doAutoUpdate
+            LoadLists() 'Load movies into lists
             Dim tClient As WebClient = New WebClient
             tClient.DownloadFile(linkMovies, pathData + "movies-posters.json")
-            LoadLists() 'Load movies into users lists (ListBox)
             timerStartup.Enabled = True
         Else
             'Show error form on movies tab - if no backup database file stored
@@ -185,60 +184,61 @@ Public Class Movieo
 
     Private Sub LoadLists()
         Try
-            Dim WebDl As New WebClient()
+            Dim client As New WebClient()
 
             'Trending Movies
-            Dim contentTrending As String = WebDl.DownloadString(linkTrending)
-            Dim splitTrending() As String = Split(contentTrending, vbNewLine)
+            Dim dataTrending As StreamReader = New StreamReader(client.OpenRead(linkTrending))
+            Dim jsonDataTrending As DataAPI = JsonConvert.DeserializeObject(Of DataAPI)(dataTrending.ReadToEnd)
 
-            For Each itemTrending As String In splitTrending
+            For Each itemTrending As String In jsonDataTrending.Movies
                 If Not itemTrending = "" Then
                     listMoviesTrending.Add(itemTrending)
                 End If
             Next
 
             'New Releases Movies
-            Dim contentNewReleases As String = WebDl.DownloadString(linkNewReleases)
-            Dim splitNewReleases() As String = Split(contentNewReleases, vbNewLine)
+            Dim dataNewReleases As StreamReader = New StreamReader(client.OpenRead(linkNewReleases))
+            Dim jsonDataNewReleases As DataAPI = JsonConvert.DeserializeObject(Of DataAPI)(dataTrending.ReadToEnd)
 
-            For Each itemNewReleases As String In splitNewReleases
-                If Not itemNewReleases = "" Then
-                    listMoviesNewReleases.Add(itemNewReleases)
+            For Each movieItem As String In jsonDataNewReleases.Movies
+                If Not movieItem = "" Then
+                    listMoviesNewReleases.Add(movieItem)
                 End If
             Next
 
             'Top Rated
-            Dim contentTopRated As String = WebDl.DownloadString(linkTopRated)
-            Dim splitTopRated() As String = Split(contentTopRated, vbNewLine)
+            Dim dataTopRated As StreamReader = New StreamReader(client.OpenRead(linkTopRated))
+            Dim jsonDataTopRated As DataAPI = JsonConvert.DeserializeObject(Of DataAPI)(dataTrending.ReadToEnd)
 
-            For Each itemTopRated As String In splitTopRated
-                If Not itemTopRated = "" Then
-                    listMoviesTopRated.Add(itemTopRated)
+            For Each movieItem As String In jsonDataTopRated.Movies
+                If Not movieItem = "" Then
+                    listMoviesTopRated.Add(movieItem)
                 End If
             Next
 
-            'Collections
-            Dim contentCollections As String = WebDl.DownloadString(linkCollections)
-            Dim splitCollections() As String = Split(contentCollections, vbNewLine)
+            'Collections - Probably should have used JSON, this was easier at the time. Maybe I'll do this one day. who knows?) (When uploaded to GitHub, I recommend using JSON, like: Trending files, etc.)
+            Dim dataCollections As StreamReader = New StreamReader(client.OpenRead(linkCollections))
+            Dim splitDataCollections As String() = dataTrending.ReadToEnd.Split(New String() {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries)
 
-            For Each itemCollection As String In splitCollections
-                If Not itemCollection = "" Then
-                    Dim itemsCollection As String() = Split(itemCollection, "|")
+            For Each collectionItem As String In splitDataCollections
+                If Not collectionItem = "" Then
+                    Dim collectionItems As String() = Split(collectionItem, "|")
 
-                    Dim a As New ctrlCollectionThumbnail
-                    a.TopLevel = False
-                    a.lblCollectionTitle.Text = itemsCollection(0)
-                    a.lblCollectionDescription.Text = itemsCollection(1)
-                    a.imgCollectionThumbnail.BackgroundImage = New Bitmap(New MemoryStream(WebDl.DownloadData(itemsCollection(2))))
+                    Dim a As New ctrlCollectionThumbnail With {
+                        .TopLevel = False,
+                        .Visible = True
+                    }
+                    a.lblCollectionTitle.Text = collectionItems(0)
+                    a.lblCollectionDescription.Text = collectionItems(1)
+                    a.imgCollectionThumbnail.BackgroundImage = New Bitmap(New MemoryStream(client.DownloadData(collectionItems(2))))
                     a.imgCollectionThumbnail.BackgroundImage = ctrlPosterTitle.ChangeOpacity(a.imgCollectionThumbnail.BackgroundImage, 0.7)
 
-                    Dim movieInCollections As String() = Split(itemsCollection(3), "*")
+                    Dim movieInCollections As String() = Split(collectionItems(3), "*")
                     For Each movie As String In movieInCollections
                         a.itemsCollectionMovies.Items.Add(movie)
                     Next
-                    a.Visible = True
-                    a.Show()
 
+                    a.Show()
                     panelCollectionsItems.Controls.Add(a)
                     storeControlsCollections.Add(a)
                 End If
@@ -247,7 +247,7 @@ Public Class Movieo
         End Try
 
         Try
-            'User Lists
+            'Load User Lists Files
             Dim decFavourites() As String = File.ReadAllLines(pathFavouritesList)
             listFavourites.AddRange(decFavourites)
 
@@ -348,7 +348,7 @@ Public Class Movieo
 
     'Get movies, display in movies and both lists
     Public NetDl = New WebClient()
-
+    Dim Movies() As String
     Public storeControlsAllMovies As New List(Of Control)
     Public storeControlsCollections As New List(Of Control)
 
@@ -363,14 +363,13 @@ Public Class Movieo
         panelLibraryWatchList.Controls.Clear()
         panelLibraryFavourites.Controls.Clear()
 
-        'Split data
-        Dim MoviesContent() As String = File.ReadAllLines(Content)
+        Movies = File.ReadAllLines(Content)
 
-        For Each MovieOnLine As String In MoviesContent.Reverse
-            If Not MovieOnLine = "" Then
+        For Each Movie As String In Movies.Reverse
+            If Not Movie = "" Then
                 MovieItem = MovieItem + 1
 
-                Dim m As OMDbAPI = JsonConvert.DeserializeObject(Of OMDbAPI)(MovieOnLine)
+                Dim m As OMDbAPI = JsonConvert.DeserializeObject(Of OMDbAPI)(Movie)
 
                 Dim tClient As WebClient = New WebClient
                 Dim TitleAndYear = m.Title.Replace("&", "&&") + " (" + m.Year + ")"
@@ -402,8 +401,8 @@ Public Class Movieo
                 a.infoTrailerUrl = m.trailerUrl
 
                 'Ratings
-                a.infoImdbId = m.imdbID
-                a.infoImdbRating = m.imdbRating
+                a.infoImdbId = m.ImdbID
+                a.infoImdbRating = m.ImdbRating
                 a.showImdbRating.Text = "IMDb " + a.infoImdbRating
 
                 'Poster
@@ -415,8 +414,8 @@ Public Class Movieo
                 End Try
 
                 'Movie Link
-                a.infoSources = m.Sources
-                a.showQuality.Text = a.ReturnHighestQuality(m.Sources)
+                a.infoStreams = m.Streams
+                a.showQuality.Text = a.ReturnHighestQuality(m.Streams)
                 If My.Settings.doQualityOnPoster = True Then a.showQuality.Visible = True
 
                 a.Name = a.infoImdbId
@@ -431,38 +430,38 @@ Public Class Movieo
                 End If
 
                 If MovieItem <= intPostersPerScroll Then
-                        If Not listBlackList.Contains(TitleAndYear) Then
-                            If listSeenList.Contains(TitleAndYear) Then
-                                If My.Settings.doWatchedMovies = 0 Then
-                                    a.imgPoster.BackgroundImage = a.ChangeOpacity(a.imgPoster.BackgroundImage, intFadeOpacity)
-                                    panelMovies.Controls.Add(a)
-                                ElseIf My.Settings.doWatchedMovies = 1 Then
-                                    'Do nothing
-                                ElseIf My.Settings.doWatchedMovies = 2 Then
-                                    panelMovies.Controls.Add(a)
-                                End If
-                            Else
-                                panelMovies.Controls.Add(a)
-                            End If
-                        End If
-                    Else
-                        storeControlsScroll.Add(a)
-                    End If
-
                     If Not listBlackList.Contains(TitleAndYear) Then
                         If listSeenList.Contains(TitleAndYear) Then
                             If My.Settings.doWatchedMovies = 0 Then
-                                a.imgPoster.BackgroundImage = a.ChangeOpacity(a.imgPoster.BackgroundImage, 0.1)
-                                storeControlsAllMovies.Add(a)
+                                a.imgPoster.BackgroundImage = a.ChangeOpacity(a.imgPoster.BackgroundImage, intFadeOpacity)
+                                panelMovies.Controls.Add(a)
                             ElseIf My.Settings.doWatchedMovies = 1 Then
                                 'Do nothing
                             ElseIf My.Settings.doWatchedMovies = 2 Then
-                                storeControlsAllMovies.Add(a)
+                                panelMovies.Controls.Add(a)
                             End If
                         Else
-                            storeControlsAllMovies.Add(a)
+                            panelMovies.Controls.Add(a)
                         End If
                     End If
+                Else
+                    storeControlsScroll.Add(a)
+                End If
+
+                If Not listBlackList.Contains(TitleAndYear) Then
+                    If listSeenList.Contains(TitleAndYear) Then
+                        If My.Settings.doWatchedMovies = 0 Then
+                            a.imgPoster.BackgroundImage = a.ChangeOpacity(a.imgPoster.BackgroundImage, 0.1)
+                            storeControlsAllMovies.Add(a)
+                        ElseIf My.Settings.doWatchedMovies = 1 Then
+                            'Do nothing
+                        ElseIf My.Settings.doWatchedMovies = 2 Then
+                            storeControlsAllMovies.Add(a)
+                        End If
+                    Else
+                        storeControlsAllMovies.Add(a)
+                    End If
+                End If
 
                 If listFavourites.Contains(TitleAndYear) Then
                     Dim newCtrl As New ctrlPosterTitle()
@@ -495,11 +494,11 @@ Public Class Movieo
                 End If
 
                 If MovieItem Mod 100 = 0 Then 'Change loading text every X movies
-                        lblLoadingSub.Text = RandomText(SearchingTexts)
-                        Threading.Thread.Sleep(650)
-                    End If
-
+                    lblLoadingSub.Text = RandomText(SearchingTexts)
+                    Threading.Thread.Sleep(650)
                 End If
+
+            End If
         Next
     End Sub
 
@@ -1340,7 +1339,7 @@ Public Class Movieo
 
 #Region "Select Source"
 
-    Public Function returnSource(parent As Form, movie As String, sources() As String, type As String) As String
+    Public Function returnSource(parent As Form, movie As String, streams As List(Of Stream), type As String) As String
         Try
             Dim WebClient As New WebClient()
             Dim a As New frmSelectSource
@@ -1352,10 +1351,9 @@ Public Class Movieo
             a.itemsMovieSourcesTitle.Items.Clear()
             a.itemsMovieSources.Items.Clear()
 
-            For Each source As String In sources
-                Dim sourceTitle As String = source.Substring(source.LastIndexOf("/") + 1)
-                a.itemsMovieSourcesTitle.Items.Add(sourceTitle)
-                a.itemsMovieSources.Items.Add(source)
+            For Each source In streams
+                a.itemsMovieSourcesTitle.Items.Add(source.Name)
+                a.itemsMovieSources.Items.Add(source.URL)
             Next
 
             If type = "watch" Then
@@ -1469,7 +1467,7 @@ Public Class Movieo
 #Region "Open New Issue (GitHub)"
 
     Public Shared Sub openBrokenFile(ByVal webFile As String)
-        Process.Start("https://github.com/invu/WebPlex/issues/new?title=" & "[Broken File] " & Path.GetFileName(webFile) & "&body=" &
+        Process.Start("https://github.com/ekkash/movieo-beta/issues/new?title=" & "[Broken File] " & Path.GetFileName(webFile) & "&body=" &
                         "Host: " & New Uri(webFile).Host.Replace("www.", "") & "%0A" &
                         "Name: " & Path.GetFileName(webFile) & "%0A" &
                         "URL: " & New Uri(webFile).AbsoluteUri + "%0A" &
@@ -1478,7 +1476,7 @@ Public Class Movieo
     End Sub
 
     Public Shared Sub openMovieRequest(ByVal movieTitle As String)
-        Process.Start("https://github.com/invu/WebPlex/issues/new?title=" & "[Movie Request] " & movieTitle & "&body=" &
+        Process.Start("https://github.com/ekkash/movieo-beta/issues/new?title=" & "[Movie Request] " & movieTitle & "&body=" &
                         "----------------------- %0A")
     End Sub
 

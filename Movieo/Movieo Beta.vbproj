@@ -167,6 +167,7 @@
     <Compile Include="ctrlContextMenuInfo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DataAPI.vb" />
     <Compile Include="frmBackgroundMovieDetails.Designer.vb">
       <DependentUpon>frmBackgroundMovieDetails.vb</DependentUpon>
     </Compile>
