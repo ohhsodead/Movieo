@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4CF33BC-C606-478C-9A8D-8619BFEEF087}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Movieo.My.MyApplication</StartupObject>
+    <RootNamespace>Movieo</RootNamespace>
+    <AssemblyName>Movieo</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://movieo.info</SupportUrl>
+    <TargetCulture>en</TargetCulture>
+    <ProductName>Movieo</ProductName>
+    <PublisherName>NV</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.3.3.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Movieo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Movieo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Movieo Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2BAF7F5D541310AEACEB08EFCC42EC2B3CF0F126</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Odeum Beta_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CButtonLib, Version=3.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\- Plugins\CButton\CButton\bin\Debug\CButtonLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ChreneLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\- Plugins\ChreneLib_DLL\ChreneLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddonTextboxWatermark.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="ctrlCollectionThumbnail.Designer.vb">
+      <DependentUpon>ctrlCollectionThumbnail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctrlCollectionThumbnail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ctrlContextMenuMyLists.Designer.vb">
+      <DependentUpon>ctrlContextMenuMyLists.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctrlContextMenuMyLists.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ctrlContextMenuPlayer.Designer.vb">
+      <DependentUpon>ctrlContextMenuPlayer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctrlContextMenuPlayer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ctrlContextMenuInfo.Designer.vb">
+      <DependentUpon>ctrlContextMenuInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctrlContextMenuInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackgroundMovieDetails.Designer.vb">
+      <DependentUpon>frmBackgroundMovieDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBackgroundMovieDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCreateList.Designer.vb">
+      <DependentUpon>frmCreateList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCreateList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDownloadClient.Designer.vb">
+      <DependentUpon>frmDownloadClient.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDownloadClient.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImportExport.Designer.vb">
+      <DependentUpon>frmImportExport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmImportExport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotifications.Designer.vb">
+      <DependentUpon>frmNotifications.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotifications.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRequestMovie.Designer.vb">
+      <DependentUpon>frmRequestMovie.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRequestMovie.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectList.Designer.vb">
+      <DependentUpon>frmSelectList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectSource.Designer.vb">
+      <DependentUpon>frmSelectSource.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectSource.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSettings.Designer.vb">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTrailerPlayer.Designer.vb">
+      <DependentUpon>frmTrailerPlayer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTrailerPlayer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMediaPlayer.Designer.vb">
+      <DependentUpon>frmMediaPlayer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMediaPlayer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMovieDetails.Designer.vb">
+      <DependentUpon>frmMovieDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMovieDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfo.Designer.vb">
+      <DependentUpon>frmInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPopupOk.Designer.vb">
+      <DependentUpon>frmPopupOk.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPopupOk.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPopupYesNo.Designer.vb">
+      <DependentUpon>frmPopupYesNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPopupYesNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmErrorTab.Designer.vb">
+      <DependentUpon>frmErrorTab.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmErrorTab.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movieo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movieo.Designer.vb">
+      <DependentUpon>Movieo.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ctrlPosterTitle.Designer.vb">
+      <DependentUpon>ctrlPosterTitle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctrlPosterTitle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="OMDbAPI.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ctrlCollectionThumbnail.resx">
+      <DependentUpon>ctrlCollectionThumbnail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlContextMenuMyLists.resx">
+      <DependentUpon>ctrlContextMenuMyLists.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlContextMenuPlayer.resx">
+      <DependentUpon>ctrlContextMenuPlayer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlContextMenuInfo.resx">
+      <DependentUpon>ctrlContextMenuInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBackgroundMovieDetails.resx">
+      <DependentUpon>frmBackgroundMovieDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCreateList.resx">
+      <DependentUpon>frmCreateList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDownloadClient.resx">
+      <DependentUpon>frmDownloadClient.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImportExport.resx">
+      <DependentUpon>frmImportExport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotifications.resx">
+      <DependentUpon>frmNotifications.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRequestMovie.resx">
+      <DependentUpon>frmRequestMovie.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectList.resx">
+      <DependentUpon>frmSelectList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectSource.resx">
+      <DependentUpon>frmSelectSource.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSettings.resx">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTrailerPlayer.resx">
+      <DependentUpon>frmTrailerPlayer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMediaPlayer.resx">
+      <DependentUpon>frmMediaPlayer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMovieDetails.resx">
+      <DependentUpon>frmMovieDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfo.resx">
+      <DependentUpon>frmInfo.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPopupOk.resx">
+      <DependentUpon>frmPopupOk.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPopupYesNo.resx">
+      <DependentUpon>frmPopupYesNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmErrorTab.resx">
+      <DependentUpon>frmErrorTab.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movieo.resx">
+      <DependentUpon>Movieo.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlPosterTitle.resx">
+      <DependentUpon>ctrlPosterTitle.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Movieo Logo.ico" />
+    <None Include="Resources\ArrowDownSpaceH.png" />
+    <None Include="Resources\ArrowDownSpace4.png" />
+    <None Include="Resources\ArrowDownSpace31.png" />
+    <None Include="Resources\ArrowDownSpace3.png" />
+    <None Include="Resources\ArrowDownSpace21.png" />
+    <None Include="Resources\ArrowDownSpace2.png" />
+    <None Include="Resources\ArrowDownSpace1.png" />
+    <None Include="Resources\ArrowDownSpace.png" />
+    <None Include="Resources\Create List.png" />
+    <None Include="Resources\MetaCriticIcon.png" />
+    <None Include="Resources\Edit Icon.png" />
+    <None Include="Resources\My Lists L.png" />
+    <None Include="Resources\My Lists H.png" />
+    <None Include="Resources\popcorntime-logo.png" />
+    <None Include="Resources\starRatingH.png" />
+    <None Include="Resources\starRatingL.png" />
+    <None Include="Resources\star.png" />
+    <None Include="Resources\Favourite H STICKY.png" />
+    <None Include="Resources\omdb-logo.png" />
+    <None Include="Resources\iconURLs.png" />
+    <None Include="Resources\iconMovies.png" />
+    <None Include="Resources\iconActors.png" />
+    <None Include="Resources\NetflixIcon.png" />
+    <None Include="Resources\ArrowDownL.png" />
+    <None Include="Resources\BookmarkIconH.png" />
+    <None Include="Resources\BookmarkIcon.png" />
+    <None Include="Resources\Watch List L1.png" />
+    <None Include="Resources\CelebSummer.png" />
+    <None Include="Resources\OMDb Logo.png" />
+    <None Include="Resources\Dropbox Logo.png" />
+    <None Include="Resources\Background2.png" />
+    <None Include="Resources\Background1.png" />
+    <None Include="Resources\PlayIcon.png" />
+    <None Include="Resources\Dropbox and OMDb.png" />
+    <None Include="Resources\TwitterL.png" />
+    <None Include="Resources\TwitterH.png" />
+    <None Include="Resources\FacebookL.png" />
+    <None Include="Resources\FacebookH.png" />
+    <None Include="packages.config" />
+    <None Include="Resources\SearchIconH.png" />
+    <None Include="Resources\SearchIconL.png" />
+    <None Include="Resources\notificationsIconL.png" />
+    <None Include="Resources\notificationsIconH.png" />
+    <None Include="Resources\CelebValentines.png" />
+    <None Include="Resources\CelebXmas.png" />
+    <None Include="Resources\CelebHalloween.png" />
+    <None Include="Resources\BrowseIconH.png" />
+    <None Include="Resources\BrowseIconL.png" />
+    <None Include="Resources\Watch List H STICKY.png" />
+    <None Include="Resources\Seen List H STICKY.png" />
+    <None Include="Resources\Black List Icon STICKY.png" />
+    <None Include="Resources\RTomatoesIcon.png" />
+    <None Include="Resources\ImdbIcon.png" />
+    <None Include="Resources\ArrowLeftH.png" />
+    <None Include="Resources\ArrowLeftL.png" />
+    <None Include="Resources\Favourite H1.png" />
+    <None Include="Resources\Favourite L Z.png" />
+    <None Include="Resources\Favourite L1.png" />
+    <None Include="Resources\Favourite L.png" />
+    <None Include="Resources\Favourite H.png" />
+    <None Include="Resources\Watch List L.png" />
+    <None Include="Resources\Watch List H.png" />
+    <None Include="Resources\Seen List L.png" />
+    <None Include="Resources\Seen List H.png" />
+    <None Include="Resources\Black List Icon L.png" />
+    <None Include="Resources\Black List Icon H.png" />
+    <None Include="Resources\UnderlineGlow9x.png" />
+    <None Include="Resources\UnderlineGlow7.png" />
+    <None Include="Resources\UnderlineGlow4.png" />
+    <None Include="Resources\UnderlineGlow3.png" />
+    <None Include="Resources\UnderlineGlow2.png" />
+    <None Include="Resources\UnderlineGlow1.png" />
+    <None Include="Resources\UnderlineGlow.png" />
+    <None Include="Resources\Movieo Glow.png" />
+    <None Include="Resources\PosterGlow.png" />
+    <None Include="Resources\DropletsIconL.png" />
+    <None Include="Resources\DropletsIconH.png" />
+    <None Include="Resources\FeedbackH.png" />
+    <None Include="Resources\FavouriteH.png" />
+    <None Include="Resources\CloseAppL.png" />
+    <None Include="Resources\CloseAppH.png" />
+    <None Include="Resources\SearchIconH1.png" />
+    <None Include="Resources\SearchIconL3.png" />
+    <None Include="Resources\Odeum Movies Logo.png" />
+    <None Include="Resources\WatchedL.png" />
+    <None Include="Resources\WatchedH.png" />
+    <None Include="Resources\WatchListL1.png" />
+    <None Include="Resources\watchepL.png" />
+    <None Include="Resources\FavouriteH1.png" />
+    <None Include="Resources\PopupCloseH.png" />
+    <None Include="Resources\PopupCloseL.png" />
+    <None Include="Resources\FacebookLogo.png" />
+    <None Include="Resources\twitterLogo.png" />
+    <None Include="Resources\themoviedb.org.png" />
+    <None Include="Resources\CloseApp.png" />
+    <None Include="Resources\SearchIconL2.png" />
+    <None Include="Resources\SearchIconL1.png" />
+    <None Include="Resources\ArrowDown1.png" />
+    <None Include="Resources\FavouriteL2.png" />
+    <None Include="Resources\FavouriteL1.png" />
+    <None Include="Resources\FavouriteL.png" />
+    <None Include="Resources\twitter logo.png" />
+    <None Include="Resources\twitter logo WHITE.png" />
+    <None Include="Resources\the_movie_db-c1cc8205ad01c84e5c86b31b3885698af54fd8c10851fe0c5453903f8bbc2401.png" />
+    <None Include="Resources\TempBg2.png" />
+    <None Include="Resources\TempBg.png" />
+    <None Include="Resources\sperm_loader1412018867.gif" />
+    <None Include="Resources\seenL.png" />
+    <None Include="Resources\seenIconL.png" />
+    <None Include="Resources\seenH.png" />
+    <None Include="Resources\SearchIconXXX.png" />
+    <None Include="Resources\SearchIconX.png" />
+    <None Include="Resources\Search-icon.png" />
+    <None Include="Resources\SearchIcon.png" />
+    <None Include="Resources\facebook-4096.png" />
+    <None Include="Resources\facebook logo WHITE.png" />
+    <None Include="Resources\f.png" />
+    <None Include="Resources\btnAddonx31.png" />
+    <None Include="Resources\Background.png" />
+    <None Include="Resources\ArrowDown.png" />
+    <None Include="Resources\watchImage1.png" />
+    <None Include="Resources\watchImage.png" />
+    <None Include="Resources\watchepH.png" />
+    <None Include="Resources\WatchedIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxShockwaveFlashObjects">
+      <Guid>{D27CDB6B-AE6D-11CF-96B8-444553540000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="ShockwaveFlashObjects">
+      <Guid>{D27CDB6B-AE6D-11CF-96B8-444553540000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
