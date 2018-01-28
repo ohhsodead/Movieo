@@ -157,7 +157,7 @@ Public Class ctrlPosterTitle
             Try
                 frmBackgroundMovieDetails.BackgroundImage = ChangeOpacity(New Bitmap(New MemoryStream(WebClient.DownloadData(infoFanartUrl))), 0.8)
                 frmBackgroundMovieDetails.Opacity = 1
-                frmMovieDetails.Opacity = 0.9
+                frmMovieDetails.Opacity = 0.8
             Catch
                 frmBackgroundMovieDetails.Opacity = 0
             End Try

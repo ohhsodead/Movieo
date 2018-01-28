@@ -81,7 +81,11 @@ Public Class Movieo
 
 #Region "Movieo"
 
+    Public MainForm As Movieo
+
     Private Sub Movieo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MainForm = Me
+
         TopMost = My.Settings.doOnTop
 
         Tab.SelectedTab = tabLoading 'Show loading page
@@ -198,7 +202,7 @@ Public Class Movieo
 
             'New Releases Movies
             Dim dataNewReleases As StreamReader = New StreamReader(client.OpenRead(linkNewReleases))
-            Dim jsonDataNewReleases As DataAPI = JsonConvert.DeserializeObject(Of DataAPI)(dataTrending.ReadToEnd)
+            Dim jsonDataNewReleases As DataAPI = JsonConvert.DeserializeObject(Of DataAPI)(dataNewReleases.ReadToEnd)
 
             For Each movieItem As String In jsonDataNewReleases.Movies
                 If Not movieItem = "" Then
@@ -208,7 +212,7 @@ Public Class Movieo
 
             'Top Rated
             Dim dataTopRated As StreamReader = New StreamReader(client.OpenRead(linkTopRated))
-            Dim jsonDataTopRated As DataAPI = JsonConvert.DeserializeObject(Of DataAPI)(dataTrending.ReadToEnd)
+            Dim jsonDataTopRated As DataAPI = JsonConvert.DeserializeObject(Of DataAPI)(dataTopRated.ReadToEnd)
 
             For Each movieItem As String In jsonDataTopRated.Movies
                 If Not movieItem = "" Then
@@ -217,8 +221,8 @@ Public Class Movieo
             Next
 
             'Collections - Probably should have used JSON, this was easier at the time. Maybe I'll do this one day. who knows?) (When uploaded to GitHub, I recommend using JSON, like: Trending files, etc.)
-            Dim dataCollections As StreamReader = New StreamReader(client.OpenRead(linkCollections))
-            Dim splitDataCollections As String() = dataTrending.ReadToEnd.Split(New String() {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries)
+            Dim dataCollections As String = client.DownloadString(linkCollections)
+            Dim splitDataCollections As String() = Split(dataCollections, vbNewLine)
 
             For Each collectionItem As String In splitDataCollections
                 If Not collectionItem = "" Then
@@ -493,7 +497,7 @@ Public Class Movieo
                     panelDownloads.Controls.Add(newCtrl)
                 End If
 
-                If MovieItem Mod 100 = 0 Then 'Change loading text every X movies
+                If MovieItem Mod 200 = 0 Then 'Change loading text every X movies
                     lblLoadingSub.Text = RandomText(SearchingTexts)
                     Threading.Thread.Sleep(650)
                 End If
