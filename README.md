@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="/Movieo/Resources/logo.png" height="128" width="128" alt="Logo" />
+  <img src="/Images/movieo-logo.png" height="128" width="128" alt="Logo" />
   <br />
   Movieo
 </h1>
